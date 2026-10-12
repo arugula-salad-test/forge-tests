@@ -1,0 +1,11 @@
+# Fails on purpose: arugula's forges_github_real.rs pushes a red-* branch,
+# then reruns this check from the rail and expects a second attempt.
+name: arugula-red
+on:
+  push:
+    branches: ["red-*"]
+jobs:
+  red:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo red on purpose; exit 1
